@@ -76,9 +76,7 @@ class StudentController {
     //------------------------------------------------------------------------------------------
     async getCLASS(req,res) 
     { let {class_ID, /*limit, page*/}= req.query
-       /* page = page || 1
-        limit = limit || 30
-        let ofset =(page-1)*limit/** */
+
 
         let classes;
        if(class_ID ){
@@ -124,9 +122,7 @@ class StudentController {
     //------------------------------------------------------------------------------------------
     async getFAMILY(req,res) 
     { let {family_id, /*limit, page*/}= req.body
-       /* page = page || 1
-        limit = limit || 30
-        let ofset =(page-1)*limit/** */
+
 
         let classes;
        if(family_id ){
