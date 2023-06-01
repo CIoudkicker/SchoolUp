@@ -228,11 +228,8 @@ class StudentController {
 async getONE(req,res) 
 {let {id}= req.body
 if(id){
-let stud=Student.findAll({where: {id} })
-//id=stud.family_id;
-//let fam=Family.findAll({where: {id} })
-//let info= JSON.stringify(JSON.parse(fam).concat(JSON.parse(stud)));
-return res.json(stud)
+    let stud=Student.findAll({where: {id} })
+    return res.json(stud)
 } else return next(ApiError.badrequest('поля пусты'))     
 }
 
