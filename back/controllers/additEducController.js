@@ -51,7 +51,7 @@ if(!id_institution||!name) return res.json({message: "учреждение ил�
     .then(event=>{
         if(!event) return next(ApiError.badrequest('некорректный айди'));
          
-        // добавим Тому курс по JavaScript
+        
         Napravlenie.findOne({where: {id: napr_id}})
             .then(course=>{
                 if(!course) return next(ApiError.badrequest('некорректный айди'));
@@ -95,9 +95,7 @@ async getSTUD(req,res,next)
         event.getStudents().then(courses=>{
             return res.json(courses)
            
-            /*for(course of courses){
-                console.log(course.name);
-            }*/
+     
         });
     });
 }
@@ -122,7 +120,7 @@ async addSTUD(req,res,next)
     .then(event=>{
         if(!event) return next(ApiError.badrequest('некорректный айди'));
          
-        // добавим Тому курс по JavaScript
+     
         Student.findOne({where: {id: stud_id}})
             .then(course=>{
                 if(!course) return next(ApiError.badrequest('некорректный айди'));
@@ -146,7 +144,7 @@ Event.findOne({where: {id}})
 .then(event=>{
     if(!event) return next(ApiError.badrequest('некорректный айди'));
      
-    // добавим Тому курс по JavaScript
+  
     Task.findOne({where: {id: task_id}})
         .then(course=>{
             if(!course) return next(ApiError.badrequest('некорректный айди'));
