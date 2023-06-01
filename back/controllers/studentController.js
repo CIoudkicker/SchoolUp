@@ -196,32 +196,33 @@ class StudentController {
     }
     //------------------------------------------------------------------------------------------
     //------------------------------------------------------------------------------------------
-    async getSOME(req,res) 
-    { let {class_ID, family_id, limit, page}= req.body
-        page = page || 1
-        limit = limit || 9999
-        let ofset =(page-1)*limit
+    async getSOME(req, res) {
+    let { class_ID, family_id, limit = 9999, page = 1 } = req.body;
+    let offset = (page - 1) * limit;
 
+    // Объект для хранения условий запроса
+    let condition = {};
 
-        let classes;
-        if(!class_ID && !family_id){
-            return next(ApiError.badrequest('поля пусты'))
-
-        }
-            else if(class_ID && !family_id){
-                classes= await Student.findAll({where: {class_ID},limit,ofset})
-
-            }
-                else if(!class_ID && family_id){
-                    classes= await Student.findAll({where: {family_id},limit,ofset})
-
-                }
-                    else if(class_ID && family_id){
-                        classes= await Student.findAll({where: {family_id, class_ID},limit,ofset})
-
-                    }
-                    return res.json(classes)
+    // Если указан class_ID, добавляем его в условие
+    if (class_ID) {
+        condition.class_ID = class_ID;
     }
+
+    // Если указан family_id, добавляем его в условие
+    if (family_id) {
+        condition.family_id = family_id;
+    }
+
+    // Если не указаны оба поля, возвращаем ошибку
+    if (!class_ID && !family_id) {
+        return next(ApiError.badrequest('поля пусты'));
+    }
+
+    // Выполняем запрос с сформированными условиями
+    let classes = await Student.findAll({ where: condition, limit, offset });
+
+    return res.json(classes);
+}
 
 //------------------------------------------------------------------------------------------
 async getONE(req,res) 
