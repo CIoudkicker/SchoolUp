@@ -93,61 +93,7 @@ class StudentController {
                     return res.json(classes)
     }
     //------------------------------------------------------------------------------------------
-    async studred(req,res,next)
-    {const {id,class_ID,name,fullname,birthday,group_of_risk,family_id,PFDO,sex }= req.body
-    if(!id){
-        return next(ApiError.badrequest('отсутствует айди'))
-    }
-    let candidate = await Student.findOne({where:{id}})
-
-
-        if(candidate){
-            if (name)
-            await Student.update({ name:name/*,lname: lname,mname: mname,comm: comm */}, {
-                where: {id}
-              });
-            if (class_ID)
-              await Student.update({ class_ID:class_ID/*,lname: lname,mname: mname,comm: comm */}, {
-                  where: {id}
-                });
-                if (fullname)
-                await Student.update({ fullname:fullname/*,lname: lname,mname: mname,comm: comm */}, {
-                    where: {id}
-                  });
-                  if (birthday)
-                await Student.update({ birthday:birthday/*,lname: lname,mname: mname,comm: comm */}, {
-                    where: {id}
-                  });
-                  if (group_of_risk)
-                  await Student.update({ group_of_risk:group_of_risk/*,lname: lname,mname: mname,comm: comm */}, {
-                      where: {id}
-                    });
-                    if (family_id)
-                    await Student.update({ family_id:family_id/*,lname: lname,mname: mname,comm: comm */}, {
-                        where: {id}
-                      }); 
-                      if (PFDO)
-                      await Student.update({ PFDO:PFDO/*,lname: lname,mname: mname,comm: comm */}, {
-                          where: {id}
-                        }); 
-                        if (sex)
-                        await Student.update({ sex:sex/*,lname: lname,mname: mname,comm: comm */}, {
-                            where: {id}
-                          }); 
-                        
-
-                  
-
-        let candidate1 = await Student.findOne({where:{id}})     
-        return res.json(candidate1)
-        }
-        else
-        {
-           return next(ApiError.badrequest('некорректный айди'))
-        }
-
-    }
-
+    
 
     async studred2(req,res,next)
     {let {id,class_ID,name,fullname,birthday,group_of_risk,family_id,PFDO,sex }= req.body
