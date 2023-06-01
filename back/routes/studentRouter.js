@@ -10,7 +10,7 @@ router.get('/:id',authMiddleware,DeviceController.getONE)//на вход {id} в
 router.post('/:id',authMiddleware,DeviceController.getSOME)//на вход  {class_ID, family_id, limit, page} где лимит это количевство учеников на странице а пейдж, номер страницы (по умолчанию 1)
 router.delete('/:id',authMiddleware,DeviceController.delete)//подаешь на ввод айди ученика, и удаляется ученик
 router.patch('/red', authMiddleware,DeviceController.studred2)//на ввод  {id,class_ID,name,fullname,birthday,group_of_risk,family_id,PFDO,sex } по желанию все кроме айди, если чего то кроме айди не будет, то он оставит это значением по умолчанию
-router.patch('/redold', authMiddleware,DeviceController.studred)
+
 router.patch('/addeduc',authMiddleware,DeviceController.getADDEDUC)
 
 module.exports = router
