@@ -51,24 +51,3 @@ catch(e){
 
 start() 
 
-
-/*
-const jsonParser = express.json();
-  
-app.post("/user", jsonParser, function (request, response) {
-    console.log(request.body);
-    if(!request.body) return response.sendStatus(400);
-     
-    response.json(request.body); // отправляем пришедший ответ обратно
-});
-
-
-//var tomUser = JSON.parse(authorisations.json);
-//document.write(tomUser.name);
-
-
-app.get("/", function(request, response){
-      
-    response.sendFile(__dirname + "/index.html");
-});*/
-  
