@@ -93,46 +93,6 @@ class eventController {
     }
 
 
-/*    async addNAPR(req,res,next)
-    {try{  const {id, napr_id } = req.body
-   
- 
-    Event.findOne({where: {id}})
-    .then(event=>{
-        if(!event) return next(ApiError.badrequest('некорректный айди'));
-         
-        // добавим Тому курс по JavaScript
-        Napravlenie.findOne({where: {id: napr_id}})
-            .then(course=>{
-                if(!course) return next(ApiError.badrequest('некорректный айди'));
-                event.addNapravlenie(course, {through:{test:1}});
-                return res.json({message:"направление добавлено"})
-        });
-        
-}); }catch(e)
-{
-    return next(ApiError.badRequest(e.message))
-}}
-
-async getNAPR(req,res,next) 
-{try{
-    const {id } = req.body
-    Event.findOne({where: {id}})
-    .then(event=>{
-        if(!event) return next(ApiError.badrequest('некорректный айди'));
-        event.getNapravlenies().then(courses=>{
-        
-            return res.json(courses)
-           
-            
-        });
-    });
-}catch(e)
-{
-    return next(ApiError.badRequest(e.message))
-}
-}/** */
-
 
 async getSTUD(req,res,next) 
 {try{
@@ -143,9 +103,7 @@ async getSTUD(req,res,next)
         event.getStudents().then(courses=>{
             return res.json(courses)
            
-            /*for(course of courses){
-                console.log(course.name);
-            }*/
+
         });
     });
 }
@@ -253,9 +211,7 @@ async getPlan_Of_Class(req,res,next)
     .then(event=>{
         if(!event) return next(ApiError.badrequest('некорректный айди'));
         event.getPlan_Of_Classs().then(courses=>{
-           /* for(course of courses){
-                console.log(course.name);
-            }/** */
+        
             return res.json(courses)
            
             
